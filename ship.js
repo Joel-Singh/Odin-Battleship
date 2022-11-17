@@ -7,6 +7,7 @@ function Ship(length) {
         hitCounter++;
         return undefined;
       },
+      length,
     };
   })();
 }
