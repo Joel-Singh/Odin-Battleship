@@ -1,5 +1,4 @@
 function Gameboard() {
-  return (function () {
     function isHit(x, y) {
       let isHitProp = `${x}${y} isHit`
       if (this.hasOwnProperty(isHitProp))
@@ -37,7 +36,6 @@ function Gameboard() {
       return true
     }
     return { isHit, hit, placeShip, allShipsSunk };
-  })();
 }
 
 export default Gameboard;
