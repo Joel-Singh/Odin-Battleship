@@ -1,14 +1,15 @@
 function Gameboard() {
     function isHit(x, y) {
       let isHitProp = `${x}${y} isHit`
-      if (this.hasOwnProperty(isHitProp))
-        return this[isHitProp]
+      if (hits.hasOwnProperty(isHitProp))
+        return hits[isHitProp]
       else
         return false
     }
 
+    let hits = {}
     function hit(x, y) {
-      this[`${x}${y} isHit`] = true;
+      hits[`${x}${y} isHit`] = true;
     }
 
     let positionsOccupiedByShips = []
