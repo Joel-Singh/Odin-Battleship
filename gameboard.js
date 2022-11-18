@@ -13,10 +13,10 @@ function Gameboard() {
     }
 
     let positionsOccupiedByShips = []
-    function placeShip(x, y, ship, direction) {
+    function placeShip(x, y, length, direction) {
       let xChange = 0
       let yChange = 0
-      for (let i = 0; i < ship.length; i++) {
+      for (let i = 0; i < length; i++) {
         xChange = 0
         yChange = 0
 
