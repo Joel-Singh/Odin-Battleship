@@ -44,18 +44,18 @@ function getCell(x, y, board) {
 }
 
 function addHitClasses(hitPositions, board) {
-  for (const singleHitPosition of hitPositions) {
-    let x = singleHitPosition[0];
-    let y = singleHitPosition[1];
-    getCell(x, y, board).classList.add("hit");
-  }
+  addClassToPositions('hit', hitPositions, board)
 }
 
 function addShipClasses(shipPositions, board) {
-  for (const singleShipPosition of shipPositions) {
-    let x = singleShipPosition[0];
-    let y = singleShipPosition[1];
-    getCell(x, y, board).classList.add("ship");
+  addClassToPositions('ship', shipPositions, board)
+}
+
+function addClassToPositions(classToAdd, positions, board) {
+  for (const singlePosition of positions) {
+    let x = singlePosition[0];
+    let y = singlePosition[1];
+    getCell(x, y, board).classList.add(classToAdd);
   }
 }
 
