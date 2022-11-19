@@ -1,11 +1,9 @@
 function drawBoard(hitPositions, shipPositions) {
   let board = createBoardWithCells();
 
-  if (hitPositions !== undefined)
-    addHitClasses(hitPositions, board);
+  if (hitPositions !== undefined) addHitClasses(hitPositions, board);
 
-  if (shipPositions !== undefined)
-    addShipClasses(shipPositions, board)
+  if (shipPositions !== undefined) addShipClasses(shipPositions, board);
 
   return board;
 }
@@ -44,11 +42,11 @@ function getCell(x, y, board) {
 }
 
 function addHitClasses(hitPositions, board) {
-  addClassToPositions('hit', hitPositions, board)
+  addClassToPositions("hit", hitPositions, board);
 }
 
 function addShipClasses(shipPositions, board) {
-  addClassToPositions('ship', shipPositions, board)
+  addClassToPositions("ship", shipPositions, board);
 }
 
 function addClassToPositions(classToAdd, positions, board) {
