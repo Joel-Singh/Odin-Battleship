@@ -1,8 +1,11 @@
-function drawBoard(hitPositions) {
+function drawBoard(hitPositions, shipPositions) {
   let board = createBoardWithCells();
 
   if (hitPositions !== undefined)
     addHitClasses(hitPositions, board);
+
+  if (shipPositions !== undefined)
+    addShipClasses(shipPositions, board)
 
   return board;
 }
@@ -45,6 +48,14 @@ function addHitClasses(hitPositions, board) {
     let x = singleHitPosition[0];
     let y = singleHitPosition[1];
     getCell(x, y, board).classList.add("hit");
+  }
+}
+
+function addShipClasses(shipPositions, board) {
+  for (const singleShipPosition of shipPositions) {
+    let x = singleShipPosition[0];
+    let y = singleShipPosition[1];
+    getCell(x, y, board).classList.add("ship");
   }
 }
 

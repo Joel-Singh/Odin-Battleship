@@ -64,3 +64,29 @@ test("Draw board with hit on (2, 7) AND (3, 8)", () => {
 
   expect(bothCellsHaveHitClass).toBe(true)
 })
+
+test("Draw board with a ship on (4, 3)", () => {
+  let board = drawBoard([] ,
+    [
+      [4, 3]
+    ]
+  )
+  let fourThree = board.querySelector(':scope :nth-child(74)')
+  let fourThreeHasShipClass = fourThree.classList.contains('ship')
+  expect(fourThreeHasShipClass).toBe(true)
+})
+
+test("Draw board with a ship on (4, 3) AND (8, 2)", () => {
+  let board = drawBoard([] , [
+    [4, 3],
+    [8, 2]
+  ])
+  let fourThree = board.querySelector(':scope :nth-child(74)')
+  let fourThreeHasShipClass = fourThree.classList.contains('ship')
+
+  let eightTwo = board.querySelector(':scope :nth-child(88)')
+  let eightTwoHasShipClass = eightTwo.classList.contains('ship')
+
+  expect(fourThreeHasShipClass).toBe(true)
+  expect(eightTwoHasShipClass).toBe(true)
+})
