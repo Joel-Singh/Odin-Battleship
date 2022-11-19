@@ -60,9 +60,8 @@ test("Draw board with hit on (2, 7) AND (3, 8)", () => {
   let threeEightCell = board.querySelector(':scope :nth-child(23)')
   let threeEightCellHasHitClass = threeEightCell.classList.contains('hit')
 
-  let bothCellsHaveHitClass = twoSevenCellHasHitClass && threeEightCellHasHitClass
-
-  expect(bothCellsHaveHitClass).toBe(true)
+  expect(twoSevenCellHasHitClass).toBe(true)
+  expect(threeEightCellHasHitClass).toBe(true)
 })
 
 test("Draw board with a ship on (4, 3)", () => {
