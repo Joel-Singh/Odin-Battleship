@@ -1,8 +1,10 @@
 
-function drawBoard(x, y) {
+function drawBoard(hitPositions) {
   let board = createBoardWithCells()
 
-  if (x !== undefined) {
+  if (hitPositions !== undefined) {
+    let x = hitPositions[0][0]
+    let y = hitPositions[0][1]
     getCell(x, y, board).classList.add('hit')
   }
 
