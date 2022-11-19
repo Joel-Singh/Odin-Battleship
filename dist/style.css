@@ -16,3 +16,15 @@
 .cell {
   border: 3px solid black;
 }
+
+.ship {
+  background-color: grey;
+}
+
+.hit {
+  background-color: yellow;
+}
+
+.ship.hit {
+  background-color: red;
+}
