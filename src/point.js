@@ -33,5 +33,8 @@ export function PointList() {
       callback(x, y)
     }
   }
-  return { add, has, forEach };
+  function getPointArr() {
+    return pointArr
+  }
+  return { add, has, forEach, getPointArr };
 }
