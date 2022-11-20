@@ -57,3 +57,25 @@ test('getPointArr returns a correct array of points', () => {
   expect(pointListOutput.has(8, 3)).toBe(true)
   expect(pointListOutput.has(2, 4)).toBe(true)
 })
+
+test('clone returns an identical pointList', () => {
+  let pointListOriginal = PointList()
+  pointListOriginal.add(5, 6)
+  pointListOriginal.add(8, 3)
+  pointListOriginal.add(2, 4)
+
+  let pointListClone = pointListOriginal.clone()
+  expect(pointListClone.has(5, 6)).toBe(true)
+  expect(pointListClone.has(8, 3)).toBe(true)
+  expect(pointListClone.has(2, 4)).toBe(true)
+
+})
+
+test(`cloned list doesn't reference the same as original`, () => {
+  let pointListOriginal = PointList()
+  let pointListClone = pointListOriginal.clone()
+
+  let isSameReference = pointListOriginal === pointListClone
+
+  expect(isSameReference).toBe(false)
+})
