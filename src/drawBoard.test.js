@@ -3,7 +3,7 @@
  */
 
 import drawBoard from "./drawBoard";
-import { PointList } from './point'
+import PointList from './pointList'
 
 test("A element with class board is returned", () => {
   let boardHasBoardClass = drawBoard().classList.contains("board");

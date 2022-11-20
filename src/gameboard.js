@@ -1,4 +1,4 @@
-import { PointList } from "./point";
+import PointList from "./pointList";
 
 function Gameboard() {
   function isHit(x, y) {

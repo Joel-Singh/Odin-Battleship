@@ -1,4 +1,4 @@
-export function Point(x, y) {
+function Point(x, y) {
   function getX() {
     return x;
   }
@@ -8,7 +8,7 @@ export function Point(x, y) {
   return { getX, getY };
 }
 
-export function PointList() {
+export default function PointList() {
   let pointArr = [];
   function add(x, y) {
     let newPoint = Point(x, y);
