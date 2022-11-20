@@ -102,3 +102,44 @@ test("allShipsSunk return true after adding ship of length 5 in a left orientati
   gameboard.hit(4 - 4, 5);
   expect(gameboard.allShipsSunk()).toBe(true);
 });
+
+test("getAllShips returns a ship position after adding a single ship of length 1 at (2, 3)", () => {
+  gameboard.placeShip(2, 3, 1, 'up')
+  let allShips = gameboard.getAllShipPositions()
+  let ship = allShips[0]
+  let x = ship.x
+  let y = ship.y
+  expect(x).toBe(2)
+  expect(y).toBe(3)
+})
+
+test("getAllShips returns a ship position after adding a single ship of length 1 at (4, 5)", () => {
+  gameboard.placeShip(4, 5, 1, 'up')
+  let allShips = gameboard.getAllShipPositions()
+  let ship = allShips[0]
+  let x = ship.x
+  let y = ship.y
+  expect(x).toBe(4)
+  expect(y).toBe(5)
+})
+
+test("getAllShips returns two ship positions after adding a single ship of length 2 at (4, 5)", () => {
+  gameboard.placeShip(4, 5, 2, 'up')
+  let allShips = gameboard.getAllShipPositions()
+  let hasShipPositionAtFourFive = allShips.
+    findIndex
+    (
+      ship =>
+      ship.x === 4 &&
+      ship.y === 5
+    ) !== -1
+  let hasShipPositionAtFourSix = allShips.
+    findIndex
+    (
+      ship =>
+      ship.x === 4 &&
+      ship.y === 6
+    ) !== -1
+
+  expect(hasShipPositionAtFourFive).toBe(true)
+})

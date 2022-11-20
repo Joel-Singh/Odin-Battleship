@@ -31,7 +31,11 @@ function Gameboard() {
     }
     return true;
   }
-  return { isHit, hit, placeShip, allShipsSunk };
+
+  function getAllShipPositions() {
+    return structuredClone(positionsOccupiedByShips)
+  }
+  return { isHit, hit, placeShip, allShipsSunk, getAllShipPositions};
 }
 
 export default Gameboard;
