@@ -41,8 +41,8 @@ function createBoardWithCells() {
 // One based index. origin is bottom left
 function getCell(x, y, board) {
   let cellNumber = 100 - 10 * y + x;
-  let hitCell = board.querySelector(`:scope :nth-child(${cellNumber})`);
-  return hitCell;
+  let cell = board.querySelector(`:scope :nth-child(${cellNumber})`);
+  return cell;
 }
 
 function addHitClasses(hitPositions, board) {
