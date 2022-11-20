@@ -39,7 +39,7 @@ function Gameboard() {
   }
 
   function getAllShipPositions() {
-    return positionsOccupiedByShips.getPointArr()
+    return positionsOccupiedByShips.clone()
   }
   return { isHit, hit, placeShip, allShipsSunk, getAllShipPositions};
 }

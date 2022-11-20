@@ -39,25 +39,6 @@ test('forEach method runs through each point', () => {
   expect(pointListOutput.has(1, 9)).toBe(true)
 })
 
-test('getPointArr returns a correct array of points', () => {
-  let pointListInput = PointList()
-  pointListInput.add(5, 6)
-  pointListInput.add(8, 3)
-  pointListInput.add(2, 4)
-  let pointArr = pointListInput.getPointArr()
-  expect(pointArr.length).toBe(3)
-
-  let pointListOutput = PointList()
-  pointArr.forEach((point) => {
-    let x = point.getX()
-    let y = point.getY()
-    pointListOutput.add(x, y)
-  })
-  expect(pointListOutput.has(5, 6)).toBe(true)
-  expect(pointListOutput.has(8, 3)).toBe(true)
-  expect(pointListOutput.has(2, 4)).toBe(true)
-})
-
 test('clone returns an identical pointList', () => {
   let pointListOriginal = PointList()
   pointListOriginal.add(5, 6)

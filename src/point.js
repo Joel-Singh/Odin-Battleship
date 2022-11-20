@@ -33,9 +33,6 @@ export function PointList() {
       callback(x, y)
     }
   }
-  function getPointArr() {
-    return pointArr
-  }
   function clone() {
     let clone = PointList()
     this.forEach((x, y) => {
@@ -43,5 +40,5 @@ export function PointList() {
     })
     return clone
   }
-  return { add, has, forEach, getPointArr, clone };
+  return { add, has, forEach, clone };
 }
