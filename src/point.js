@@ -1,4 +1,4 @@
-function Point(x, y) {
+export function Point(x, y) {
   function getX() {
     return x
   }
@@ -8,4 +8,16 @@ function Point(x, y) {
   return {getX, getY}
 }
 
-export default Point
+export function PointList() {
+  let pointArr = []
+  function add(x, y) {
+    let newPoint = Point(x, y)
+    pointArr.push(newPoint)
+  }
+  function has(x, y) {
+    return pointArr.findIndex((point) =>
+      point.getX() === x && point.getY() === y
+    ) !== -1
+  }
+  return {add, has}
+}
