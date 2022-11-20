@@ -15,11 +15,16 @@ export function PointList() {
     pointArr.push(newPoint);
   }
   function has(x, y) {
-    return (
-      pointArr.findIndex(
-        (point) => point.getX() === x && point.getY() === y
-      ) !== -1
-    );
+    let pointIndex = pointArr.findIndex(
+      (point) => {
+        let sameX = point.getX() === x
+        let sameY = point.getY() === y
+        let sameXandY = sameX && sameY
+        return sameXandY
+      }
+    )
+    let hasPoint = pointIndex !== -1
+    return hasPoint
   }
   return { add, has };
 }
