@@ -26,5 +26,12 @@ export function PointList() {
     let hasPoint = pointIndex !== -1
     return hasPoint
   }
-  return { add, has };
+  function forEach(callback) {
+    for (const point of pointArr) {
+      let x = point.getX()
+      let y = point.getY()
+      callback(x, y)
+    }
+  }
+  return { add, has, forEach };
 }

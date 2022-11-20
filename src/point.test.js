@@ -22,3 +22,19 @@ test('Point list has() returns FALSE for nonexistent point', () => {
   let pointList = PointList()
   expect(pointList.has(7, 8)).toBe(false)
 })
+
+test('forEach method runs through each point', () => {
+  let pointListInput = PointList()
+  pointListInput.add(2, 5)
+  pointListInput.add(8, 3)
+  pointListInput.add(1, 9)
+
+  let pointListOutput = PointList()
+  pointListInput.forEach((x, y) => {
+    pointListOutput.add(x, y)
+  })
+
+  expect(pointListOutput.has(2, 5)).toBe(true)
+  expect(pointListOutput.has(8, 3)).toBe(true)
+  expect(pointListOutput.has(1, 9)).toBe(true)
+})
