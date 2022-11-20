@@ -38,13 +38,6 @@ function createBoardWithCells() {
   }
 }
 
-// One based index. origin is bottom left
-function getCell(x, y, board) {
-  let cellNumber = (100 - (10 * y)) + x;
-  let cell = board.querySelector(`:scope :nth-child(${cellNumber})`);
-  return cell;
-}
-
 function addHitClasses(hitPositions, board) {
   addClassToPositions("hit", hitPositions, board);
 }
@@ -57,6 +50,13 @@ function addClassToPositions(classToAdd, pointList, board) {
   pointList.forEach((x, y) => {
     getCell(x, y, board).classList.add(classToAdd);
   })
+
+  // One based index. origin is bottom left
+  function getCell(x, y, board) {
+    let cellNumber = (100 - (10 * y)) + x;
+    let cell = board.querySelector(`:scope :nth-child(${cellNumber})`);
+    return cell;
+  }
 }
 
 export { drawBoard, drawBoardFromGameboard };
