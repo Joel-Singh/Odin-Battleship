@@ -2,95 +2,100 @@
  * @jest-environment jsdom
  */
 
-import { drawBoard } from "./drawBoard";
 import PointList from './pointList'
 
-test("A element with class board is returned", () => {
-  let boardHasBoardClass = drawBoard().classList.contains("board");
-  expect(boardHasBoardClass).toBe(true);
-});
 
-test("There are 100 cells in the board", () => {
-  let numberOfCells = drawBoard().querySelectorAll(".cell").length;
-  expect(numberOfCells).toBe(100);
-});
+import { drawBoard } from "./drawBoard";
 
-test("Draw board with hit on (5, 10)", () => {
-  let pointList = PointList()
-  pointList.add(5, 10)
-  let board = drawBoard(pointList);
-  let cell = board.querySelector(":scope :nth-child(5)");
-  let cellHasHitClass = cell.classList.contains("hit");
-  expect(cellHasHitClass).toBe(true);
-});
+describe("drawBoard function", () => {
+  test("A element with class board is returned", () => {
+    let boardHasBoardClass = drawBoard().classList.contains("board");
+    expect(boardHasBoardClass).toBe(true);
+  });
 
-test("Draw board with hit on (3, 1)", () => {
-  let pointList = PointList()
-  pointList.add(3, 1)
-  let board = drawBoard(pointList);
-  let cell = board.querySelector(":scope :nth-child(93)");
-  let cellHasHitClass = cell.classList.contains("hit");
-  expect(cellHasHitClass).toBe(true);
-});
+  test("There are 100 cells in the board", () => {
+    let numberOfCells = drawBoard().querySelectorAll(".cell").length;
+    expect(numberOfCells).toBe(100);
+  });
 
-test("Draw board with hit on (5, 5)", () => {
-  let pointList = PointList()
-  pointList.add(5, 5)
-  let board = drawBoard(pointList);
-  let cell = board.querySelector(":scope :nth-child(55)");
-  let cellHasHitClass = cell.classList.contains("hit");
-  expect(cellHasHitClass).toBe(true);
-});
+  test("Draw board with hit on (5, 10)", () => {
+    let pointList = PointList()
+    pointList.add(5, 10)
+    let board = drawBoard(pointList);
+    let cell = board.querySelector(":scope :nth-child(5)");
+    let cellHasHitClass = cell.classList.contains("hit");
+    expect(cellHasHitClass).toBe(true);
+  });
 
-test("Draw board with hit on (2, 7) AND (3, 8)", () => {
-  let pointList = PointList()
-  pointList.add(2, 7)
-  pointList.add(3, 8)
-  let board = drawBoard(pointList);
+  test("Draw board with hit on (3, 1)", () => {
+    let pointList = PointList()
+    pointList.add(3, 1)
+    let board = drawBoard(pointList);
+    let cell = board.querySelector(":scope :nth-child(93)");
+    let cellHasHitClass = cell.classList.contains("hit");
+    expect(cellHasHitClass).toBe(true);
+  });
 
-  let twoSevenCell = board.querySelector(":scope :nth-child(32)");
-  let twoSevenCellHasHitClass = twoSevenCell.classList.contains("hit");
+  test("Draw board with hit on (5, 5)", () => {
+    let pointList = PointList()
+    pointList.add(5, 5)
+    let board = drawBoard(pointList);
+    let cell = board.querySelector(":scope :nth-child(55)");
+    let cellHasHitClass = cell.classList.contains("hit");
+    expect(cellHasHitClass).toBe(true);
+  });
 
-  let threeEightCell = board.querySelector(":scope :nth-child(23)");
-  let threeEightCellHasHitClass = threeEightCell.classList.contains("hit");
+  test("Draw board with hit on (2, 7) AND (3, 8)", () => {
+    let pointList = PointList()
+    pointList.add(2, 7)
+    pointList.add(3, 8)
+    let board = drawBoard(pointList);
 
-  expect(twoSevenCellHasHitClass).toBe(true);
-  expect(threeEightCellHasHitClass).toBe(true);
-});
+    let twoSevenCell = board.querySelector(":scope :nth-child(32)");
+    let twoSevenCellHasHitClass = twoSevenCell.classList.contains("hit");
 
-test("Draw board with a ship on (4, 3)", () => {
-  let shipList = PointList()
-  shipList.add(4, 3)
+    let threeEightCell = board.querySelector(":scope :nth-child(23)");
+    let threeEightCellHasHitClass = threeEightCell.classList.contains("hit");
 
-  let emptyPointList = PointList()
+    expect(twoSevenCellHasHitClass).toBe(true);
+    expect(threeEightCellHasHitClass).toBe(true);
+  });
 
-  let board = drawBoard(emptyPointList, shipList);
+  test("Draw board with a ship on (4, 3)", () => {
+    let shipList = PointList()
+    shipList.add(4, 3)
 
-  let fourThree = board.querySelector(":scope :nth-child(74)");
-  let fourThreeHasShipClass = fourThree.classList.contains("ship");
-  expect(fourThreeHasShipClass).toBe(true);
-});
+    let emptyPointList = PointList()
 
-test("Draw board with a ship on (4, 3) AND (8, 2)", () => {
-  let shipList = PointList()
-  shipList.add(4, 3)
-  shipList.add(8, 2)
+    let board = drawBoard(emptyPointList, shipList);
 
-  let emptylist = PointList()
+    let fourThree = board.querySelector(":scope :nth-child(74)");
+    let fourThreeHasShipClass = fourThree.classList.contains("ship");
+    expect(fourThreeHasShipClass).toBe(true);
+  });
 
-  let board = drawBoard(
-    emptylist,
-    shipList
-  );
-  let fourThree = board.querySelector(":scope :nth-child(74)");
-  let fourThreeHasShipClass = fourThree.classList.contains("ship");
+  test("Draw board with a ship on (4, 3) AND (8, 2)", () => {
+    let shipList = PointList()
+    shipList.add(4, 3)
+    shipList.add(8, 2)
 
-  let eightTwo = board.querySelector(":scope :nth-child(88)");
-  let eightTwoHasShipClass = eightTwo.classList.contains("ship");
+    let emptylist = PointList()
 
-  expect(fourThreeHasShipClass).toBe(true);
-  expect(eightTwoHasShipClass).toBe(true);
-});
+    let board = drawBoard(
+      emptylist,
+      shipList
+    );
+    let fourThree = board.querySelector(":scope :nth-child(74)");
+    let fourThreeHasShipClass = fourThree.classList.contains("ship");
+
+    let eightTwo = board.querySelector(":scope :nth-child(88)");
+    let eightTwoHasShipClass = eightTwo.classList.contains("ship");
+
+    expect(fourThreeHasShipClass).toBe(true);
+    expect(eightTwoHasShipClass).toBe(true);
+  });
+})
+
 
 import Gameboard from "./gameboard";
 import { drawBoardFromGameboard } from './drawBoard.js'
