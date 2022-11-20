@@ -40,7 +40,7 @@ function createBoardWithCells() {
 
 // One based index. origin is bottom left
 function getCell(x, y, board) {
-  let cellNumber = 100 - 10 * y + x;
+  let cellNumber = (100 - (10 * y)) + x;
   let cell = board.querySelector(`:scope :nth-child(${cellNumber})`);
   return cell;
 }
