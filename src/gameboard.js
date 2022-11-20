@@ -41,7 +41,11 @@ function Gameboard() {
   function getAllShipPositions() {
     return positionsOccupiedByShips.clone()
   }
-  return { isHit, hit, placeShip, allShipsSunk, getAllShipPositions};
+
+  function getAllHits() {
+    return hits.clone()
+  }
+  return { isHit, hit, placeShip, allShipsSunk, getAllShipPositions, getAllHits};
 }
 
 export default Gameboard;

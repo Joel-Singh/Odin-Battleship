@@ -117,3 +117,19 @@ test("getAllShips returns two ship positions after adding a single ship of lengt
   expect(allShips.has(4, 5)).toBe(true)
   expect(allShips.has(4, 6)).toBe(true)
 })
+
+test("getAllHits returns a point list with (2, 3))", () => {
+  gameboard.hit(2, 3)
+  let allHits = gameboard.getAllHits()
+
+  expect(allHits.has(2, 3)).toBe(true)
+})
+
+test("getAllHits returns two hit positions", () => {
+  gameboard.hit(2, 3)
+  gameboard.hit(8, 7)
+  let allHits = gameboard.getAllHits()
+
+  expect(allHits.has(2, 3)).toBe(true)
+  expect(allHits.has(8, 7)).toBe(true)
+})
