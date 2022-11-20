@@ -10,7 +10,7 @@ function Gameboard() {
     hits.add(x, y)
   }
 
-  let positionsOccupiedByShips = [];
+  let positionsOccupiedByShips = PointList()
   function placeShip(x, y, length, direction) {
     let xChange = 0;
     let yChange = 0;
@@ -22,20 +22,24 @@ function Gameboard() {
       else if (direction === "down") yChange = -i;
       else if (direction === "right") xChange = i;
       else if (direction === "left") xChange = -i;
-      positionsOccupiedByShips.push({ x: x + xChange, y: y + yChange });
+      positionsOccupiedByShips.add(x + xChange, y + yChange);
     }
   }
 
   function allShipsSunk() {
-    for (const shipPosition of positionsOccupiedByShips) {
-      let shipPositionHit = this.isHit(shipPosition.x, shipPosition.y);
-      if (!shipPositionHit) return false;
-    }
-    return true;
+    let allShipsSunkBool = true
+
+    positionsOccupiedByShips.forEach((x, y) => {
+      let isShipHit = this.isHit(x, y)
+      if (!isShipHit)
+        allShipsSunkBool = false
+    })
+
+    return allShipsSunkBool;
   }
 
   function getAllShipPositions() {
-    return structuredClone(positionsOccupiedByShips)
+    return positionsOccupiedByShips.getPointArr()
   }
   return { isHit, hit, placeShip, allShipsSunk, getAllShipPositions};
 }

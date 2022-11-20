@@ -107,8 +107,8 @@ test("getAllShips returns a ship position after adding a single ship of length 1
   gameboard.placeShip(2, 3, 1, 'up')
   let allShips = gameboard.getAllShipPositions()
   let ship = allShips[0]
-  let x = ship.x
-  let y = ship.y
+  let x = ship.getX()
+  let y = ship.getY()
   expect(x).toBe(2)
   expect(y).toBe(3)
 })
@@ -117,8 +117,8 @@ test("getAllShips returns a ship position after adding a single ship of length 1
   gameboard.placeShip(4, 5, 1, 'up')
   let allShips = gameboard.getAllShipPositions()
   let ship = allShips[0]
-  let x = ship.x
-  let y = ship.y
+  let x = ship.getX()
+  let y = ship.getY()
   expect(x).toBe(4)
   expect(y).toBe(5)
 })
@@ -130,15 +130,15 @@ test("getAllShips returns two ship positions after adding a single ship of lengt
     findIndex
     (
       ship =>
-      ship.x === 4 &&
-      ship.y === 5
+      ship.getX() === 4 &&
+      ship.getY() === 5
     ) !== -1
   let hasShipPositionAtFourSix = allShips.
     findIndex
     (
       ship =>
-      ship.x === 4 &&
-      ship.y === 6
+      ship.getX() === 4 &&
+      ship.getY() === 6
     ) !== -1
 
   expect(hasShipPositionAtFourFive).toBe(true)
