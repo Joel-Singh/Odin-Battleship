@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import drawBoard from "./drawBoard";
+import { drawBoard } from "./drawBoard";
 import PointList from './pointList'
 
 test("A element with class board is returned", () => {
@@ -91,3 +91,28 @@ test("Draw board with a ship on (4, 3) AND (8, 2)", () => {
   expect(fourThreeHasShipClass).toBe(true);
   expect(eightTwoHasShipClass).toBe(true);
 });
+
+import Gameboard from "./gameboard";
+import { drawBoardFromGameboard } from './drawBoard.js'
+
+describe("drawBoardFromGameboard", () => {
+  let gameboard
+  beforeEach(() => {
+    gameboard = Gameboard()
+  })
+  test("test hit on (5, 10)", () => {
+    gameboard.hit(5, 10)
+    let board = drawBoardFromGameboard(gameboard)
+    let cell = board.querySelector(":scope :nth-child(5)");
+    let cellHasHitClass = cell.classList.contains("hit");
+    expect(cellHasHitClass).toBe(true);
+  })
+
+  test("test ship on (5, 10)", () => {
+    gameboard.placeShip(5, 10, 1, '')
+    let board = drawBoardFromGameboard(gameboard)
+    let cell = board.querySelector(":scope :nth-child(5)");
+    let cellHasShipClass = cell.classList.contains("ship");
+    expect(cellHasShipClass).toBe(true);
+  })
+})

@@ -1,3 +1,7 @@
+function drawBoardFromGameboard(board) {
+  return drawBoard(board.getAllHits(), board.getAllShipPositions())
+}
+
 function drawBoard(hitPositions, shipPositions) {
   let board = createBoardWithCells();
 
@@ -55,4 +59,4 @@ function addClassToPositions(classToAdd, pointList, board) {
   })
 }
 
-export default drawBoard;
+export { drawBoard, drawBoardFromGameboard };
