@@ -1,11 +1,13 @@
+import { PointList } from "./point";
+
 function Gameboard() {
   function isHit(x, y) {
-    return hits.includes(`${x}${y}`)
+    return hits.has(x, y)
   }
 
-  let hits = []
+  let hits = PointList()
   function hit(x, y) {
-    hits.push(`${x}${y}`)
+    hits.add(x, y)
   }
 
   let positionsOccupiedByShips = [];
