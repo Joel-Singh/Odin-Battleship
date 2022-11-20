@@ -49,12 +49,10 @@ function addShipClasses(shipPositions, board) {
   addClassToPositions("ship", shipPositions, board);
 }
 
-function addClassToPositions(classToAdd, positions, board) {
-  for (const singlePosition of positions) {
-    let x = singlePosition[0];
-    let y = singlePosition[1];
+function addClassToPositions(classToAdd, pointList, board) {
+  pointList.forEach((x, y) => {
     getCell(x, y, board).classList.add(classToAdd);
-  }
+  })
 }
 
 export default drawBoard;
