@@ -2,14 +2,11 @@
  * @jest-environment jsdom
  */
 
-import { drawBoard } from "./drawBoard";
 import { allowOneCellToBeHit } from './mainGameLoop'
 import Gameboard from './gameboard'
 
-let domBoard;
 let objBoard;
 beforeEach(() => {
-  domBoard = drawBoard()
   objBoard = Gameboard()
 })
 
