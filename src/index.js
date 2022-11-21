@@ -1,4 +1,17 @@
-import drawBoard from "./drawBoard";
+console.log('hello world')
+import Gameboard from "./gameboard";
+import { allowOneCellToBeHit, initializeDOMWithTwoGameboards } from "./mainGameLoop";
 
-let body = document.querySelector("body");
-body.append(drawBoard());
+initializeDOMWithTwoGameboards()
+let playerDOMBoard = document.querySelector('.player-side .board')
+let playerObjBoard = Gameboard()
+
+let enemyDOMBoard = document.querySelector('.enemy-side .board')
+let enemyObjBoard = Gameboard()
+
+async function gameLoop() {
+  while (true) {
+    debugger;
+    await allowOneCellToBeHit(enemyDOMBoard, enemyObjBoard)
+  }
+}
