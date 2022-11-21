@@ -1,4 +1,3 @@
-console.log('hello world')
 import Gameboard from "./gameboard";
 import { allowOneCellToBeHit, initializeDOMWithTwoGameboards } from "./mainGameLoop";
 
@@ -11,7 +10,7 @@ let enemyObjBoard = Gameboard()
 
 async function gameLoop() {
   while (true) {
-    debugger;
     await allowOneCellToBeHit(enemyDOMBoard, enemyObjBoard)
   }
 }
+gameLoop()
