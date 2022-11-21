@@ -4,10 +4,16 @@ function allowOneCellToBeHit(DOMBoard, ObjBoard) {
   let allCells = [...DOMBoard.querySelectorAll('.cell')]
   addHitFunctionToAll()
 
+  let cellHasBeenHitResolvePromise;
+  return new Promise((resolve) => {
+    cellHasBeenHitResolvePromise = resolve
+  })
+
   function hitFunction(e) {
     e.target.classList.add('hit')
     updateObjBoard()
     removeHitFunctionFromAll()
+    cellHasBeenHitResolvePromise()
 
     function updateObjBoard() {
       let x = Number.parseInt(e.target.getAttribute('data-x'))
