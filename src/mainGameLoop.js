@@ -1,5 +1,17 @@
 import { drawBoard } from "./drawBoard"
 
+function addHitEventListeners(board) {
+  let allCells = [...board.querySelectorAll('.cell')]
+  allCells.forEach(
+    cell =>
+      cell.addEventListener('click', hitFunction)
+  )
+
+  function hitFunction(e) {
+    e.target.classList.add('hit')
+  }
+}
+
 function initializeDOMWithTwoGameboards() {
   let body = document.querySelector('body')
   let gameBoards = createTwoGameBoards()
@@ -49,3 +61,5 @@ function initializeDOMWithTwoGameboards() {
     }
   }
 }
+
+export { initializeDOMWithTwoGameboards, addHitEventListeners }
