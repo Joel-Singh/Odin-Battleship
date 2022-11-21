@@ -3,7 +3,7 @@
  */
 
 import { drawBoard } from "./drawBoard";
-import { addHitEventListeners } from './mainGameLoop'
+import { allowOneCellToBeHit } from './mainGameLoop'
 
 let board;
 beforeEach(() => {
@@ -11,7 +11,7 @@ beforeEach(() => {
 })
 
 test('Hit class added to (3, 4) cell after adding event listener and clicking it', () => {
-  addHitEventListeners(board)
+  allowOneCellToBeHit(board)
   let threeFourCell = board.querySelector('[data-x="3"][data-y="4"]')
   threeFourCell.click()
   let isHit = threeFourCell.classList.contains('hit')
@@ -19,7 +19,7 @@ test('Hit class added to (3, 4) cell after adding event listener and clicking it
 })
 
 test('Hit class added ONLY to (2, 8) cell after adding event listener and clicking it', () => {
-  addHitEventListeners(board)
+  allowOneCellToBeHit(board)
   let twoEightCell = board.querySelector('[data-x="2"][data-y="8"]')
   twoEightCell.click()
   let isTwoEightHit = twoEightCell.classList.contains('hit')
@@ -31,7 +31,7 @@ test('Hit class added ONLY to (2, 8) cell after adding event listener and clicki
 })
 
 test('Hit class added ONLY to (3, 4) cell after clicking two cells', () => {
-  addHitEventListeners(board)
+  allowOneCellToBeHit(board)
 
   let threeFourCell = board.querySelector('[data-x="3"][data-y="4"]')
   let nineTwoCell = board.querySelector('[data-x="9"][data-y="2"]')

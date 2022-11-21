@@ -1,6 +1,6 @@
 import { drawBoard } from "./drawBoard"
 
-function addHitEventListeners(board) {
+function allowOneCellToBeHit(board) {
   let allCells = [...board.querySelectorAll('.cell')]
   addHitFunctionToAll()
 
@@ -76,4 +76,4 @@ function initializeDOMWithTwoGameboards() {
   }
 }
 
-export { initializeDOMWithTwoGameboards, addHitEventListeners }
+export { initializeDOMWithTwoGameboards, allowOneCellToBeHit }
