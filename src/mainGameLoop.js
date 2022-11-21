@@ -1,7 +1,7 @@
 import { drawBoard } from "./drawBoard"
 
-function allowOneCellToBeHit(board) {
-  let allCells = [...board.querySelectorAll('.cell')]
+function allowOneCellToBeHit(DOMBoard) {
+  let allCells = [...DOMBoard.querySelectorAll('.cell')]
   addHitFunctionToAll()
 
   function hitFunction(e) {
