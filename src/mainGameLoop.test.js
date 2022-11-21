@@ -29,3 +29,20 @@ test('Hit class added ONLY to (2, 8) cell after adding event listener and clicki
   let isSixSevenHit = sixSevenCell.classList.contains('hit')
   expect(isSixSevenHit).toBe(false)
 })
+
+test('Hit class added ONLY to (3, 4) cell after clicking two cells', () => {
+  addHitEventListeners(board)
+
+  let threeFourCell = board.querySelector('[data-x="3"][data-y="4"]')
+  let nineTwoCell = board.querySelector('[data-x="9"][data-y="2"]')
+
+  threeFourCell.click()
+  nineTwoCell.click()
+
+  let isThreeFourHit = threeFourCell.classList.contains('hit')
+  let isNineTwoHit = nineTwoCell.classList.contains('hit')
+
+  expect(isThreeFourHit).toBe(true)
+  expect(isNineTwoHit).toBe(false)
+
+})

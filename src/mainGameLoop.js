@@ -2,14 +2,28 @@ import { drawBoard } from "./drawBoard"
 
 function addHitEventListeners(board) {
   let allCells = [...board.querySelectorAll('.cell')]
-  allCells.forEach(
-    cell =>
-      cell.addEventListener('click', hitFunction)
-  )
+  addHitFunctionToAll()
 
   function hitFunction(e) {
     e.target.classList.add('hit')
+    removeHitFunctionFromAll()
   }
+
+  function addHitFunctionToAll() {
+    allCells.forEach(
+      cell =>
+        cell.addEventListener('click', hitFunction)
+    )
+  }
+
+  function removeHitFunctionFromAll() {
+    allCells.forEach(
+      cell =>
+        cell.removeEventListener('click', hitFunction)
+    )
+  }
+
+
 }
 
 function initializeDOMWithTwoGameboards() {
