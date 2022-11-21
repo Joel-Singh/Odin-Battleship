@@ -73,4 +73,4 @@ function addClassToPositions(classToAdd, pointList, board) {
   }
 }
 
-export { drawBoard, drawBoardFromGameboard };
+export default drawBoardFromGameboard
