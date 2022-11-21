@@ -4,10 +4,13 @@
 
 import { drawBoard } from "./drawBoard";
 import { allowOneCellToBeHit } from './mainGameLoop'
+import Gameboard from './gameboard'
 
 let domBoard;
+let objBoard;
 beforeEach(() => {
   domBoard = drawBoard()
+  objBoard = Gameboard()
 })
 
 test('Hit class added to (3, 4) cell after adding event listener and clicking it', () => {
