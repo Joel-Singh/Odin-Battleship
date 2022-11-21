@@ -1,12 +1,19 @@
 import { drawBoard } from "./drawBoard"
 
-function allowOneCellToBeHit(DOMBoard) {
+function allowOneCellToBeHit(DOMBoard, ObjBoard) {
   let allCells = [...DOMBoard.querySelectorAll('.cell')]
   addHitFunctionToAll()
 
   function hitFunction(e) {
     e.target.classList.add('hit')
+    updateObjBoard()
     removeHitFunctionFromAll()
+
+    function updateObjBoard() {
+      let x = Number.parseInt(e.target.getAttribute('data-x'))
+      let y = Number.parseInt(e.target.getAttribute('data-y'))
+      ObjBoard.hit(x, y)
+    }
   }
 
   function addHitFunctionToAll() {
