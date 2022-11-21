@@ -25,8 +25,9 @@ function createBoardWithCells() {
 
   function add100CellsTo(board) {
     const NUM_OF_CELLS = 100;
-    for (let i = 0; i < NUM_OF_CELLS; i++) {
+    for (let i = 1; i <= NUM_OF_CELLS; i++) {
       let newCell = createCell();
+      updateCellAttributePositions(newCell, i)
       board.append(newCell);
     }
 
@@ -34,6 +35,19 @@ function createBoardWithCells() {
       let newCell = document.createElement("div");
       newCell.classList.add("cell");
       return newCell;
+    }
+
+    function updateCellAttributePositions(cell, number) {
+      let xValue = number % 10
+      if (xValue === 0)
+        xValue = 10
+
+      let yValue = 10 - Number.parseInt(number / 10)
+      if (number % 10 === 0)
+        yValue = yValue + 1
+
+      cell.setAttribute('data-x', xValue)
+      cell.setAttribute('data-y', yValue)
     }
   }
 }

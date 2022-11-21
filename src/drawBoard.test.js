@@ -18,6 +18,38 @@ describe("drawBoard function", () => {
     expect(numberOfCells).toBe(100);
   });
 
+  test("Cell at (3, 5) has correct data attributes", () => {
+    let threeFiveCell = drawBoard().querySelector(":scope :nth-child(53)")
+    let dataX = threeFiveCell.getAttribute('data-x')
+    let dataY = threeFiveCell.getAttribute('data-y')
+    expect(dataX).toBe('3')
+    expect(dataY).toBe('5')
+  })
+
+  test("Cell at (6, 8) has correct data attributes", () => {
+    let twoSixCell = drawBoard().querySelector(":scope :nth-child(26)")
+    let dataX = twoSixCell.getAttribute('data-x')
+    let dataY = twoSixCell.getAttribute('data-y')
+    expect(dataX).toBe('6')
+    expect(dataY).toBe('8')
+  })
+
+  test("Cell at (10, 10) has correct data attributes", () => {
+    let tenTenCell = drawBoard().querySelector(":scope :nth-child(10)")
+    let dataX = tenTenCell.getAttribute('data-x')
+    let dataY = tenTenCell.getAttribute('data-y')
+    expect(dataX).toBe('10')
+    expect(dataY).toBe('10')
+  })
+
+  test("Cell at (10, 5) has correct data attributes", () => {
+    let tenTenCell = drawBoard().querySelector(":scope :nth-child(60)")
+    let dataX = tenTenCell.getAttribute('data-x')
+    let dataY = tenTenCell.getAttribute('data-y')
+    expect(dataX).toBe('10')
+    expect(dataY).toBe('5')
+  })
+
   test("Draw board with hit on (5, 10)", () => {
     let pointList = PointList()
     pointList.add(5, 10)
