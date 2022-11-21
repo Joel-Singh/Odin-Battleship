@@ -67,8 +67,7 @@ function addClassToPositions(classToAdd, pointList, board) {
 
   // One based index. origin is bottom left
   function getCell(x, y, board) {
-    let cellNumber = (100 - (10 * y)) + x;
-    let cell = board.querySelector(`:scope :nth-child(${cellNumber})`);
+    let cell = board.querySelector(`[data-x="${x}"][data-y="${y}"]`);
     return cell;
   }
 }
