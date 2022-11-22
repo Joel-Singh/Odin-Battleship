@@ -1,6 +1,6 @@
 function drawBoardFromGameboard(board) {
   if (board === undefined)
-    throw 'no board passed in!'
+    throw 'No board passed into drawBoardFromGameboard'
   return drawBoard(board.getAllHits(), board.getAllShipPositions())
 }
 
