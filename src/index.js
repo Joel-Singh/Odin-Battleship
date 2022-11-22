@@ -1,5 +1,5 @@
 import Gameboard from "./gameboard";
-import { allowOneCellToBeHit } from "./mainGameLoop";
+import { allowOneCellToBeHit } from "./turn";
 import { initializeDOMWithTwoGameboards } from  './DOM'
 
 let playerObjBoard = Gameboard()

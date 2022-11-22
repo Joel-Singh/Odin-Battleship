@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { allowOneCellToBeHit } from './mainGameLoop'
+import { allowOneCellToBeHit } from './turn'
 import Gameboard from './gameboard'
 
 let objBoard;
