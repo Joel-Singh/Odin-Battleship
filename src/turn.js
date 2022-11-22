@@ -1,6 +1,3 @@
-import drawBoard from "./drawBoard";
-
-// function playerTurn
 function allowOneCellToBeHit(domBoard, objBoard) {
   let allCells = [...domBoard.querySelectorAll(".cell")];
   addHitFunctionToAll();
