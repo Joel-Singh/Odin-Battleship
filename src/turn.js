@@ -1,7 +1,8 @@
 import drawBoard from "./drawBoard";
 
-function allowOneCellToBeHit(DOMBoard, ObjBoard) {
-  let allCells = [...DOMBoard.querySelectorAll(".cell")];
+// function playerTurn
+function allowOneCellToBeHit(domBoard, objBoard) {
+  let allCells = [...domBoard.querySelectorAll(".cell")];
   addHitFunctionToAll();
 
   let cellHasBeenHitResolvePromise;
@@ -22,7 +23,7 @@ function allowOneCellToBeHit(DOMBoard, ObjBoard) {
       function updateObjBoard() {
         let x = Number.parseInt(e.target.getAttribute("data-x"));
         let y = Number.parseInt(e.target.getAttribute("data-y"));
-        ObjBoard.hit(x, y);
+        objBoard.hit(x, y);
       }
 
       function updateDOMBoard() {
