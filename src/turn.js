@@ -1,3 +1,5 @@
+import drawBoard from "./drawBoard";
+
 function allowOneCellToBeHit(DOMBoard, ObjBoard) {
   let allCells = [...DOMBoard.querySelectorAll(".cell")];
   addHitFunctionToAll();
@@ -8,15 +10,24 @@ function allowOneCellToBeHit(DOMBoard, ObjBoard) {
   });
 
   function hitFunction(e) {
-    e.target.classList.add("hit");
-    updateObjBoard();
+    updateBoards()
     removeHitFunctionFromAll();
+
     cellHasBeenHitResolvePromise();
 
-    function updateObjBoard() {
-      let x = Number.parseInt(e.target.getAttribute("data-x"));
-      let y = Number.parseInt(e.target.getAttribute("data-y"));
-      ObjBoard.hit(x, y);
+    function updateBoards() {
+      updateObjBoard()
+      updateDOMBoard()
+
+      function updateObjBoard() {
+        let x = Number.parseInt(e.target.getAttribute("data-x"));
+        let y = Number.parseInt(e.target.getAttribute("data-y"));
+        ObjBoard.hit(x, y);
+      }
+
+      function updateDOMBoard() {
+        e.target.classList.add('hit')
+      }
     }
   }
 

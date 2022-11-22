@@ -3,11 +3,14 @@
  */
 
 import { allowOneCellToBeHit } from './turn'
+import drawBoard from './drawBoard'
 import Gameboard from './gameboard'
 
 let objBoard;
+let domBoard
 beforeEach(() => {
   objBoard = Gameboard()
+  domBoard = drawBoard(objBoard)
 })
 
 test('Hit class added to (3, 4) cell after adding event listener and clicking it', () => {
@@ -15,6 +18,7 @@ test('Hit class added to (3, 4) cell after adding event listener and clicking it
   let threeFourCell = domBoard.querySelector('[data-x="3"][data-y="4"]')
   threeFourCell.click()
   let isHit = threeFourCell.classList.contains('hit')
+  debugger;
   expect(isHit).toBe(true)
 })
 
